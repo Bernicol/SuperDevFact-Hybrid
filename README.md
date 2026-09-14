@@ -1,10 +1,9 @@
 # SUPER DEV FACT — Client hybride (Web + WebView2)
 
-Même produit, même socle métier que le client lourd natif (voir le dépôt
-`SuperDevFact-Heavy`), avec une interface entièrement différente : une API HTTP + un
-front React, empaquetés dans un shell natif WebView2 (même famille d'approche
-qu'Electron). Aucune ligne de logique métier n'a été dupliquée pour construire ce
-second client.
+Même produit, même socle métier que le client lourd natif : [SuperDevFact-Heavy](https://github.com/Bernicol/SuperDevFact-Heavy),
+avec une interface entièrement différente : une API HTTP + un front React, empaquetés
+dans un shell natif WebView2 (même famille d'approche qu'Electron). Aucune ligne de
+logique métier n'a été dupliquée pour construire ce second client.
 
 > POC réalisé dans un contexte de démonstration technique, en environ 8 heures de
 > travail. Ce délai reflète la contrainte de l'exercice (aller vite vers un résultat
