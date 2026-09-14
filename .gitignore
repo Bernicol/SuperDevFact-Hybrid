@@ -1,0 +1,38 @@
+## .NET
+bin/
+obj/
+*.user
+.vs/
+
+## Rider / VS
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build output
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+publish/
+artifacts/
+installer/output/
+
+## Secrets / local config
+appsettings.Development.json
+appsettings.Local.json
+appsettings.Secrets.json
+*.local.json
+.env
+
+## Front web (React)
+client/node_modules/
+client/dist/
+src/SuperDevFact.Api/wwwroot/
+
+## Binaire tiers téléchargé (voir README) : bootstrap WebView2, non versionné
+installer/assets/MicrosoftEdgeWebview2Setup.exe
+
+## OS
+Thumbs.db
+.DS_Store

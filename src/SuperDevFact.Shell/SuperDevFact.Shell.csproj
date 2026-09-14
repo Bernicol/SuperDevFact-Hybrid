@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4191.47" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\favicon.ico" />
+  </ItemGroup>
+
+  <!--
+    Le shell est un client léger : il n'embarque aucune logique métier, seulement un
+    WebView2 pointant vers l'API locale. Pour livrer "un seul exe à double-cliquer", on
+    republie SuperDevFact.Api à côté du shell (dossier "api") à chaque build/publish.
+    Deux variantes : légère (framework-dependent) pour le confort du dev local, et
+    self-contained/single-file pour le vrai livrable (miroir des options du Shell lui-même).
+  -->
+  <Target Name="PublishEmbeddedApiForBuild" AfterTargets="Build">
+    <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)..\SuperDevFact.Api\SuperDevFact.Api.csproj&quot; -c $(Configuration) -r win-x64 --self-contained false -o &quot;$(OutDir)api&quot;" />
+  </Target>
+
+  <Target Name="PublishEmbeddedApiForPublish" AfterTargets="Publish">
+    <Exec Command="dotnet publish &quot;$(MSBuildThisFileDirectory)..\SuperDevFact.Api\SuperDevFact.Api.csproj&quot; -c $(Configuration) -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -o &quot;$(PublishDir)api&quot;" />
+  </Target>
+
+</Project>

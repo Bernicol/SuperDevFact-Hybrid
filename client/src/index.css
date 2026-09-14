@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", system-ui, Roboto, sans-serif;
+
+  --color-navy-950: #0b1220;
+  --color-navy-900: #0f1b30;
+  --color-navy-800: #16274a;
+  --color-navy-700: #1e3a63;
+
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+
+  --color-glow-blue: #3b82f6;
+  --color-glow-violet: #8b5cf6;
+  --color-glow-cyan: #22d3ee;
+  --color-glow-emerald: #34d399;
+  --color-glow-amber: #fbbf24;
+  --color-glow-rose: #fb7185;
+}
+
+body {
+  margin: 0;
+  background: #070a12;
+  color: #e2e8f0;
+  font-family: var(--font-sans);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -30px) scale(1.08); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.05); }
+}
+
+.animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
+.animate-float-slower { animation: float-slower 16s ease-in-out infinite; }
